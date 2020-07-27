@@ -10,7 +10,7 @@ var collections = ["purple", "blue", "green", "yellow", "pink"]
 // create a function that takes in an array
 const shuffleRemaining = (array) => {
     // if the array is empty, return "the array is empty"
-    if (array.length === 0){
+    if (array.length === 1){
         return "The array is empty."
     } else {
         // create a new array to store updated array
@@ -37,7 +37,12 @@ let collections2  = shuffleRemaining(collections)
 console.log(collections2)
 let collections3 = shuffleRemaining(collections2)
 console.log(collections3)
-console.log(shuffleRemaining(collections3))
+let collections4 = shuffleRemaining(collections3)
+console.log(collections4)
+let collections5 = shuffleRemaining(collections4)
+console.log(collections5)
+let collections6 = shuffleRemaining(collections5)
+console.log(collections6)
 
 // --------------------2) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
 
@@ -119,7 +124,7 @@ var testString2 = "jabberwocky"
 
 // create a function that takes in a string
 const oddCaps = (string) =>{
-    let newString = string
+    let newString = string.toLowerCase()
     // loop through the string odd indexes of the string
     for (let i = 1; i < newString.length; i = i+2) {
         // update the character with the odd index Capitalized
@@ -145,23 +150,15 @@ var arr2 = [7, 8, 2, 3, 1, 5, 4]
 //create a function that accepts 2 arrays
 const noDupes = (array1, array2) => {
     let noDupesArray = []
-
-    //map through first array and make sure there are no duplicates
-    array1.map((value, index) => {
+    let combinedArray = array1.concat(array2)
+    //map through combined array and make sure there are no duplicates
+    combinedArray.map((value, index) => {
         // if the current index is the first occurrence (or first index) of the value in the array, add it to the noDupesArray
-        if (array1.indexOf(value) === index) {
+        if (combinedArray.indexOf(value) === index) {
             return noDupesArray.push(value) 
         }
     })
 
-    //map through second array and compare to no Dupes Array
-    array2.map(value => {
-        // if the current value does not have an index (doesn't exist = -1) in the noDupesArray, add it to the array
-        if (noDupesArray.indexOf(value)  < 0) {
-            return noDupesArray.push(value)
-             
-        }
-    })
     return noDupesArray
 }
 
